@@ -62,6 +62,8 @@ class SQLite(Dialect):
                               timeout=5)
         try:
             for name, path in self.files.items():
+                if name == "main":
+                    continue      # the file is already open as the connection's implicit `main` database
                 raw.execute(f"ATTACH DATABASE ? AS {self.quote(name)}", (_uri(path),))
             raw.execute("PRAGMA query_only = ON")
             ident = id(raw)

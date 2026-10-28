@@ -41,6 +41,10 @@ class ConfigTests(unittest.TestCase):
             with self.subTest(bad=bad), self.assertRaises(ToolError):
                 _profile("x", dict(engine="sqlite", **bad))
 
+    def test_sqlite_reserved_names_rejected(self):
+        with self.assertRaisesRegex(ToolError, "reserved"):
+            _profile("x", {"engine": "sqlite", "databases": {"main": "/a.db", "shop": "/b.db"}})
+
     def test_sqlite_needs_path_not_user(self):
         self.assertEqual(_profile("x", {"engine": "sqlite", "path": "/tmp/a.db"}).path, "/tmp/a.db")
         with self.assertRaisesRegex(ToolError, "'path'"):

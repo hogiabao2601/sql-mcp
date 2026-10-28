@@ -128,6 +128,9 @@ def _profile(name: str, raw: dict) -> Profile:
         if not isinstance(files, dict) or not 1 <= len(files) <= 9 or not all(
                 isinstance(k, str) and k and isinstance(v, str) and v for k, v in files.items()):
             raise ToolError(f"Profile '{name}': 'databases' must map 1 to 9 names to SQLite file paths.")
+        if raw.get("databases") and ({"main", "temp"} & {k.lower() for k in files}):
+            raise ToolError(f"Profile '{name}': 'main' and 'temp' are reserved SQLite names; use 'path' for a "
+                            "single file, or pick other names.")
         databases = tuple(files.items())
         if raw.get("database") and raw["database"] not in files:
             raise ToolError(f"Profile '{name}': database '{raw['database']}' is not one of {', '.join(files)}.")
