@@ -344,7 +344,15 @@ def main() -> None:
     args = ap.parse_args()
 
     Handler.config_path = args.config
-    httpd = ThreadingHTTPServer((args.host, args.port), Handler)
+    try:
+        httpd = ThreadingHTTPServer((args.host, args.port), Handler)
+    except OSError as e:
+        import errno
+        if e.errno != errno.EADDRINUSE or args.port == 0:
+            raise
+        print(f"port {args.port} is already in use (another wizard may be running); picking a free port instead.",
+              file=sys.stderr)
+        httpd = ThreadingHTTPServer((args.host, 0), Handler)
     port = httpd.server_address[1]
     url = f"http://{args.host}:{port}/?t={TOKEN}"
     print(f"sql-mcp setup wizard: {url}", file=sys.stderr)
