@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sql-mcp"
+version = "0.1.0"
+description = "Read-only MCP server for SQL databases (MySQL, MariaDB, PostgreSQL, SQLite, StarRocks)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=2,<3",
+    "pymysql>=1.1,<2",
+    "sqlglot==30.25.0",          # security-relevant (guard, masking): pinned exactly, re-run the guard suites to upgrade
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2,<4"]
+dev = ["ruff==0.17.3", "mypy==2.4.0", "types-PyMySQL==1.2.0.20260923"]
+
+[project.scripts]
+sql-mcp = "sql_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sql_mcp"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["spikes"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP"]       # pycodestyle, pyflakes, bugbear, pyupgrade
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["E501"]     # long SQL strings read better unwrapped
+"bench/**" = ["E501"]
+"tests/smoke_mysql.py" = ["E501", "B905"]   # the original v2 smoke test is kept byte-for-byte (its 56 checks are the contract)
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/sql_mcp"]
+warn_unused_ignores = true
+warn_redundant_casts = true
+check_untyped_defs = true

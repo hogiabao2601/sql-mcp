@@ -1,0 +1,18 @@
+[conformance] engine=mariadb port=33327 server=10.11.19-MariaDB-ubu2204
+FAIL: test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables)
+AssertionError: Lists differ: ['customers', 'orders', 'order_items', 'products'] != ['customers', 'order_items', 'orders', 'products']
+Ran 34 tests in 14.143s
+FAILED (failures=1)
+[conformance] engine=mariadb port=33326 server=11.4.13-MariaDB-ubu2404
+FAIL: test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables)
+AssertionError: Lists differ: ['customers', 'orders', 'order_items', 'products'] != ['customers', 'order_items', 'orders', 'products']
+Ran 34 tests in 14.395s
+FAILED (failures=1)
+[conformance] engine=mariadb port=33328 server=11.8.9-MariaDB-ubu2404
+FAIL: test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables)
+AssertionError: Lists differ: ['customers', 'orders', 'order_items', 'products'] != ['customers', 'order_items', 'orders', 'products']
+Ran 34 tests in 14.604s
+FAILED (failures=1)
+[conformance] engine=mysql port=33316 server=8.4.13
+Ran 34 tests in 24.460s
+OK

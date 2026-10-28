@@ -1,0 +1,23 @@
+{
+  "default": "myproject-dev",
+  "profiles": {
+    "myproject-dev": {
+      "host": "127.0.0.1",
+      "port": 3306,
+      "user": "readonly_user",
+      "password_env": "MYPROJECT_DEV_DB_PASSWORD",
+      "database": "myproject",
+      "timeout_ms": 5000,
+      "pool_size": 3,
+      "mask_columns": ["password", "token", "secret", "ssn", "email"]
+    },
+    "myproject-staging": {
+      "host": "staging-db.internal.example",
+      "user": "readonly_user",
+      "password_env": "MYPROJECT_STAGING_DB_PASSWORD",
+      "database": "myproject",
+      "ssl_ca": "/path/to/ca.pem",
+      "ssl_check_hostname": true
+    }
+  }
+}

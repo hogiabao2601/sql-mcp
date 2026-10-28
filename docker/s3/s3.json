@@ -1,0 +1,6 @@
+{
+  "identities": [
+    {"name": "lake", "credentials": [{"accessKey": "sqlmcp-lake", "secretKey": "sqlmcp-lake-secret-test-only"}],
+     "actions": ["Admin", "Read", "Write", "List", "Tagging"]}
+  ]
+}

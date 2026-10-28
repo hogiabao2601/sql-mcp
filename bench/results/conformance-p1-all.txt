@@ -1,0 +1,1997 @@
+
+[conformance] engine=sqlite port=0 server=SQLite 3.54.1 (in-process)
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... [sql-mcp] profile=writer ms=0 rows=1
+ok
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] profile=one ms=4 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... skipped 'PostgreSQL only: set_config() exists there (MySQL/MariaDB: SET, refused by layer 1)'
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... skipped 'SHOW/DESCRIBE through execute_query are MySQL-family only'
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] profile=shop ms=8 rows=3
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=6
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] profile=analytics ms=4 rows=5
+[sql-mcp] profile=analytics ms=0 rows=3
+[sql-mcp] profile=analytics ms=0 rows=5
+[sql-mcp] profile=analytics ms=0 rows=3
+[sql-mcp] profile=analytics ms=0 rows=5
+[sql-mcp] profile=analytics ms=0 rows=4
+[sql-mcp] profile=analytics ms=0 rows=5
+[sql-mcp] profile=analytics ms=0 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=4 rows=5
+[sql-mcp] profile=analytics ms=0 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=306 rows=1
+[sql-mcp] profile=shop ms=296 rows=1
+[sql-mcp] profile=shop ms=298 rows=1
+[sql-mcp] profile=shop ms=307 rows=1
+[sql-mcp] profile=shop ms=309 rows=1
+[sql-mcp] profile=shop ms=592 rows=1
+[sql-mcp] profile=shop ms=602 rows=1
+[sql-mcp] profile=shop ms=603 rows=1
+[sql-mcp] profile=shop ms=893 rows=1
+[sql-mcp] profile=shop ms=901 rows=1
+[sql-mcp] profile=shop ms=905 rows=1
+[sql-mcp] profile=shop ms=1650 rows=1
+[sql-mcp] profile=shop ms=1656 rows=1
+[sql-mcp] profile=shop ms=1734 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=6 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... skipped 'in-process engine: no server session to kill'
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] profile=nodb ms=16 rows=1
+[sql-mcp] profile=nodb ms=15 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=6 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=6 rows=1
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=11 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=40 rows=8000
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=3 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... skipped 'in-process engine: no network, no TLS'
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... skipped 'in-process engine: no network, no TLS'
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'in-process engine: no network, no TLS'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=5 rows=5
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=4 rows=5
+[sql-mcp] profile=shop ms=0 rows=3
+[sql-mcp] profile=shop ms=0 rows=5
+[sql-mcp] profile=shop ms=0 rows=3
+[sql-mcp] profile=shop ms=0 rows=5
+[sql-mcp] profile=shop ms=0 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=0 rows=50
+[sql-mcp] profile=shop ms=0 rows=5
+[sql-mcp] profile=shop ms=0 rows=74
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=7 rows=5
+[sql-mcp] profile=shop ms=4 rows=5
+[sql-mcp] profile=shop ms=0 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=3 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=3 rows=1
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=3 rows=4
+[sql-mcp] profile=shop ms=3 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=3 rows=2
+[sql-mcp] profile=shop ms=3 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=3 rows=19
+[sql-mcp] profile=shop ms=0 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=7 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 14.883s
+
+OK (skipped=6)
+
+[conformance] engine=mysql port=33316 server=8.4.13
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=13 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... skipped 'PostgreSQL only: set_config() exists there (MySQL/MariaDB: SET, refused by layer 1)'
+test_refusals_carry_a_reason (tests.conformance.conformance_suite.Guard.test_refusals_carry_a_reason) ... ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... [sql-mcp] WARNING profile=shop: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=25 rows=4
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] profile=shop ms=14 rows=1
+[sql-mcp] profile=shop ms=2 rows=3
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=6
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=14 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=16 rows=5
+[sql-mcp] profile=analytics ms=1 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=316 rows=1
+[sql-mcp] profile=shop ms=304 rows=1
+[sql-mcp] profile=shop ms=302 rows=1
+[sql-mcp] profile=shop ms=319 rows=1
+[sql-mcp] profile=shop ms=320 rows=1
+[sql-mcp] profile=shop ms=604 rows=1
+[sql-mcp] profile=shop ms=621 rows=1
+[sql-mcp] profile=shop ms=621 rows=1
+[sql-mcp] profile=shop ms=908 rows=1
+[sql-mcp] profile=shop ms=924 rows=1
+[sql-mcp] profile=shop ms=924 rows=1
+[sql-mcp] profile=shop ms=1210 rows=1
+[sql-mcp] profile=shop ms=1227 rows=1
+[sql-mcp] profile=shop ms=1227 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=18 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=25 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=17 rows=1
+[sql-mcp] profile=nodb ms=16 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=14 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1016 rows=1
+[sql-mcp] profile=one ms=828 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=20 rows=724
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=14 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=5 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... [sql-mcp] WARNING profile=tls_require: the connection is encrypted but NOT verified (tls=require). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=tls_require ms=14 rows=1
+ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=20 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=1 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=14 rows=5
+[sql-mcp] profile=shop ms=1 rows=50
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=2 rows=74
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=14 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=16 rows=10
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=14 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=14 rows=5
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=13 rows=1
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=13 rows=5
+[sql-mcp] profile=shop ms=1 rows=5
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=14 rows=4
+[sql-mcp] profile=shop ms=2 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=14 rows=2
+[sql-mcp] profile=shop ms=15 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=13 rows=19
+[sql-mcp] profile=shop ms=1 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=14 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 25.537s
+
+OK (skipped=3)
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+
+[conformance] engine=mariadb port=33327 server=10.11.19-MariaDB-ubu2204
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=10 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... skipped 'PostgreSQL only: set_config() exists there (MySQL/MariaDB: SET, refused by layer 1)'
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... [sql-mcp] WARNING profile=shop: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=10 rows=4
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] profile=shop ms=9 rows=1
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=4 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=6
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=11 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=0 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=10 rows=5
+[sql-mcp] profile=analytics ms=1 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=313 rows=1
+[sql-mcp] profile=shop ms=303 rows=1
+[sql-mcp] profile=shop ms=303 rows=1
+[sql-mcp] profile=shop ms=318 rows=1
+[sql-mcp] profile=shop ms=319 rows=1
+[sql-mcp] profile=shop ms=605 rows=1
+[sql-mcp] profile=shop ms=620 rows=1
+[sql-mcp] profile=shop ms=620 rows=1
+[sql-mcp] profile=shop ms=909 rows=1
+[sql-mcp] profile=shop ms=922 rows=1
+[sql-mcp] profile=shop ms=923 rows=1
+[sql-mcp] profile=shop ms=1211 rows=1
+[sql-mcp] profile=shop ms=1224 rows=1
+[sql-mcp] profile=shop ms=1225 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=3 rows=10
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=18 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=24 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=15 rows=1
+[sql-mcp] profile=nodb ms=13 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=11 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=11 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1013 rows=1
+[sql-mcp] profile=one ms=829 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=22 rows=783
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=3 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=11 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=5 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=10 rows=5
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=10 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=0 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=10 rows=5
+[sql-mcp] profile=shop ms=1 rows=50
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=74
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=9 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=11 rows=10
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=10 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=10 rows=5
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=10 rows=1
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=9 rows=4
+[sql-mcp] profile=shop ms=0 rows=4
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=10 rows=4
+[sql-mcp] profile=shop ms=1 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=9 rows=2
+[sql-mcp] profile=shop ms=10 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=10 rows=19
+[sql-mcp] profile=shop ms=1 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=10 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.268s
+
+OK (skipped=3)
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+
+[conformance] engine=mariadb port=33326 server=11.4.13-MariaDB-ubu2404
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=15 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... skipped 'PostgreSQL only: set_config() exists there (MySQL/MariaDB: SET, refused by layer 1)'
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... [sql-mcp] WARNING profile=shop: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=16 rows=4
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] profile=shop ms=15 rows=1
+[sql-mcp] profile=shop ms=2 rows=3
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=3 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=6
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=16 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=16 rows=5
+[sql-mcp] profile=analytics ms=1 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=320 rows=1
+[sql-mcp] profile=shop ms=305 rows=1
+[sql-mcp] profile=shop ms=304 rows=1
+[sql-mcp] profile=shop ms=333 rows=1
+[sql-mcp] profile=shop ms=333 rows=1
+[sql-mcp] profile=shop ms=605 rows=1
+[sql-mcp] profile=shop ms=636 rows=1
+[sql-mcp] profile=shop ms=636 rows=1
+[sql-mcp] profile=shop ms=905 rows=1
+[sql-mcp] profile=shop ms=935 rows=1
+[sql-mcp] profile=shop ms=936 rows=1
+[sql-mcp] profile=shop ms=1207 rows=1
+[sql-mcp] profile=shop ms=1237 rows=1
+[sql-mcp] profile=shop ms=1238 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=30 rows=1
+[sql-mcp] profile=one ms=4 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=3 rows=10
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=20 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=26 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=20 rows=1
+[sql-mcp] profile=nodb ms=18 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=16 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=18 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1022 rows=1
+[sql-mcp] profile=one ms=844 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=37 rows=813
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=3 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=17 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=4 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... [sql-mcp] WARNING profile=tls_require: the connection is encrypted but NOT verified (tls=require). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=tls_require ms=17 rows=1
+ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=15 rows=5
+[sql-mcp] profile=shop ms=1 rows=50
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=74
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=15 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=16 rows=10
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=15 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=15 rows=5
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=14 rows=1
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=16 rows=4
+[sql-mcp] profile=shop ms=1 rows=4
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=15 rows=4
+[sql-mcp] profile=shop ms=1 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=15 rows=2
+[sql-mcp] profile=shop ms=16 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=15 rows=19
+[sql-mcp] profile=shop ms=1 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=14 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.548s
+
+OK (skipped=3)
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+
+[conformance] engine=mariadb port=33328 server=11.8.9-MariaDB-ubu2404
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=15 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... skipped 'PostgreSQL only: set_config() exists there (MySQL/MariaDB: SET, refused by layer 1)'
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... [sql-mcp] WARNING profile=shop: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=16 rows=4
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] profile=shop ms=15 rows=1
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=4 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=6
+[sql-mcp] profile=shop ms=0 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=15 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=1 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=17 rows=5
+[sql-mcp] profile=analytics ms=1 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=319 rows=1
+[sql-mcp] profile=shop ms=302 rows=1
+[sql-mcp] profile=shop ms=302 rows=1
+[sql-mcp] profile=shop ms=324 rows=1
+[sql-mcp] profile=shop ms=324 rows=1
+[sql-mcp] profile=shop ms=604 rows=1
+[sql-mcp] profile=shop ms=625 rows=1
+[sql-mcp] profile=shop ms=626 rows=1
+[sql-mcp] profile=shop ms=905 rows=1
+[sql-mcp] profile=shop ms=926 rows=1
+[sql-mcp] profile=shop ms=927 rows=1
+[sql-mcp] profile=shop ms=1209 rows=1
+[sql-mcp] profile=shop ms=1229 rows=1
+[sql-mcp] profile=shop ms=1229 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=29 rows=1
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=19 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=20 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=18 rows=1
+[sql-mcp] profile=nodb ms=17 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=1 rows=5
+[sql-mcp] profile=one ms=0 rows=10
+[sql-mcp] profile=one ms=0 rows=1
+[sql-mcp] profile=one ms=0 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1016 rows=1
+[sql-mcp] profile=one ms=841 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=38 rows=906
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=3 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=17 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=4 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... [sql-mcp] WARNING profile=tls_require: the connection is encrypted but NOT verified (tls=require). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=tls_require ms=21 rows=1
+ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=25 rows=5
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=23 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=1 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=20 rows=5
+[sql-mcp] profile=shop ms=1 rows=50
+[sql-mcp] profile=shop ms=1 rows=5
+[sql-mcp] profile=shop ms=2 rows=74
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/cursors.py", line 423, in close
+    self._result._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+[sql-mcp] profile=shop ms=25 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=23 rows=10
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=22 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=23 rows=5
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=14 rows=1
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=20 rows=1
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=19 rows=4
+[sql-mcp] profile=shop ms=1 rows=4
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=22 rows=4
+[sql-mcp] profile=shop ms=1 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=19 rows=2
+[sql-mcp] profile=shop ms=18 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=20 rows=19
+[sql-mcp] profile=shop ms=1 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=19 rows=0
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.673s
+
+OK (skipped=3)
+Traceback (most recent call last):
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1286, in __del__
+    self._finish_unbuffered_query()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 1399, in _finish_unbuffered_query
+    packet = self.connection._read_packet()
+  File "/Users/bao.ho/Projects/sql-mcp/.venv/lib/python3.15/site-packages/pymysql/connections.py", line 774, in _read_packet
+    ^^^^^^^^^^^^^^^^^^^^^
+
+[conformance] engine=postgres port=54314 server=14.24 (Debian 14.24-1.pgdg13+2)
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=10 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... [sql-mcp] profile=writer ms=9 rows=1
+ok
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... skipped 'SHOW/DESCRIBE through execute_query are MySQL-family only'
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] WARNING profile=shop: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=12 rows=1
+[sql-mcp] profile=shop ms=7 rows=3
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=9 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=9 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=9 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=5 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=6
+[sql-mcp] profile=shop ms=4 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=13 rows=5
+[sql-mcp] profile=analytics ms=2 rows=3
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=2 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=2 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=14 rows=5
+[sql-mcp] profile=analytics ms=3 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=313 rows=1
+[sql-mcp] profile=shop ms=308 rows=1
+[sql-mcp] profile=shop ms=308 rows=1
+[sql-mcp] profile=shop ms=317 rows=1
+[sql-mcp] profile=shop ms=315 rows=1
+[sql-mcp] profile=shop ms=613 rows=1
+[sql-mcp] profile=shop ms=620 rows=1
+[sql-mcp] profile=shop ms=620 rows=1
+[sql-mcp] profile=shop ms=919 rows=1
+[sql-mcp] profile=shop ms=923 rows=1
+[sql-mcp] profile=shop ms=924 rows=1
+[sql-mcp] profile=shop ms=1224 rows=1
+[sql-mcp] profile=shop ms=1225 rows=1
+[sql-mcp] profile=shop ms=1225 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=13 rows=1
+[sql-mcp] profile=one ms=6 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=4 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=3 rows=10
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=12 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=13 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=12 rows=1
+[sql-mcp] profile=nodb ms=3 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=12 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=12 rows=1
+[sql-mcp] profile=one ms=5 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=4 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1019 rows=1
+[sql-mcp] profile=one ms=821 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=42 rows=649
+[sql-mcp] profile=shop ms=6 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=12 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=17 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=2 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=3 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=3 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=21 rows=5
+[sql-mcp] profile=shop ms=2 rows=50
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=3 rows=74
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=15 rows=10
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=12 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=15 rows=5
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=8 rows=2
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=12 rows=2
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=12 rows=6
+[sql-mcp] profile=shop ms=1 rows=6
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=13 rows=4
+[sql-mcp] profile=shop ms=4 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=12 rows=2
+[sql-mcp] profile=shop ms=11 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=14 rows=19
+[sql-mcp] profile=shop ms=5 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=12 rows=0
+[sql-mcp] profile=shop ms=6 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=4 rows=1
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=3 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.482s
+
+OK (skipped=3)
+
+[conformance] engine=postgres port=54329 server=17.11 (Debian 17.11-1.pgdg13+2)
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=12 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... [sql-mcp] profile=writer ms=19 rows=1
+ok
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... skipped 'SHOW/DESCRIBE through execute_query are MySQL-family only'
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] WARNING profile=shop: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=15 rows=1
+[sql-mcp] profile=shop ms=6 rows=3
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=8 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=8 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=8 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=5 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=6
+[sql-mcp] profile=shop ms=4 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=18 rows=5
+[sql-mcp] profile=analytics ms=2 rows=3
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+[sql-mcp] profile=analytics ms=2 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=2 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=17 rows=5
+[sql-mcp] profile=analytics ms=3 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=323 rows=1
+[sql-mcp] profile=shop ms=305 rows=1
+[sql-mcp] profile=shop ms=316 rows=1
+[sql-mcp] profile=shop ms=322 rows=1
+[sql-mcp] profile=shop ms=321 rows=1
+[sql-mcp] profile=shop ms=619 rows=1
+[sql-mcp] profile=shop ms=623 rows=1
+[sql-mcp] profile=shop ms=623 rows=1
+[sql-mcp] profile=shop ms=927 rows=1
+[sql-mcp] profile=shop ms=928 rows=1
+[sql-mcp] profile=shop ms=928 rows=1
+[sql-mcp] profile=shop ms=1235 rows=1
+[sql-mcp] profile=shop ms=1236 rows=1
+[sql-mcp] profile=shop ms=1236 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=24 rows=1
+[sql-mcp] profile=one ms=11 rows=5
+[sql-mcp] profile=one ms=3 rows=10
+[sql-mcp] profile=one ms=6 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=4 rows=5
+[sql-mcp] profile=one ms=4 rows=10
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=18 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=19 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is encrypted but NOT verified (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=16 rows=1
+[sql-mcp] profile=nodb ms=3 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=16 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=14 rows=1
+[sql-mcp] profile=one ms=5 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=10 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1021 rows=1
+[sql-mcp] profile=one ms=823 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=36 rows=649
+[sql-mcp] profile=shop ms=6 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=13 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... [sql-mcp] WARNING profile=tls_require: the connection is encrypted but NOT verified (tls=require). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=tls_require ms=14 rows=1
+ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... [sql-mcp] profile=tls_verify_full ms=17 rows=1
+ok
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=18 rows=5
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=19 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=3 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=1 rows=3
+[sql-mcp] profile=shop ms=2 rows=5
+[sql-mcp] profile=shop ms=3 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=19 rows=5
+[sql-mcp] profile=shop ms=2 rows=50
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=6 rows=74
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=19 rows=10
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=16 rows=0
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=17 rows=5
+[sql-mcp] profile=shop ms=4 rows=1
+[sql-mcp] profile=shop ms=8 rows=2
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=17 rows=2
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=16 rows=6
+[sql-mcp] profile=shop ms=2 rows=6
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=19 rows=4
+[sql-mcp] profile=shop ms=3 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=18 rows=2
+[sql-mcp] profile=shop ms=16 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=19 rows=19
+[sql-mcp] profile=shop ms=5 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=16 rows=0
+[sql-mcp] profile=shop ms=5 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=5 rows=1
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=4 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.709s
+
+OK (skipped=2)
+
+[conformance] engine=postgres port=54318 server=18.6 (Debian 18.6-1.pgdg13+2)
+test_engine_specific_escapes_are_refused_without_the_guard (tests.conformance.conformance_suite.EngineLayers.test_engine_specific_escapes_are_refused_without_the_guard) ... skipped 'no engine-specific escapes listed for this engine'
+test_layer2_read_only_session_stops_a_writer (tests.conformance.conformance_suite.EngineLayers.test_layer2_read_only_session_stops_a_writer) ... [sql-mcp] WARNING profile=writer: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+ok
+test_layer3_select_only_account (tests.conformance.conformance_suite.EngineLayers.test_layer3_select_only_account) ... ok
+test_session_reads_text_like_the_guard (tests.conformance.conformance_suite.EngineLayers.test_session_reads_text_like_the_guard) ... [sql-mcp] WARNING profile=one: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=one ms=10 rows=1
+ok
+test_sql_cannot_switch_read_only_off_for_later_calls (tests.conformance.conformance_suite.EngineLayers.test_sql_cannot_switch_read_only_off_for_later_calls)
+PostgreSQL: a SELECT can call set_config() (the guard refuses it, but run() skips the guard). Each ... [sql-mcp] profile=writer ms=11 rows=1
+ok
+ok
+test_show_describe_explain_still_work (tests.conformance.conformance_suite.Guard.test_show_describe_explain_still_work) ... skipped 'SHOW/DESCRIBE through execute_query are MySQL-family only'
+test_awkward_names (tests.conformance.conformance_suite.Identifiers.test_awkward_names) ... [sql-mcp] WARNING profile=shop: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=shop ms=12 rows=1
+[sql-mcp] profile=shop ms=6 rows=3
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=2
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=9 rows=0
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=8 rows=0
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=7 rows=0
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=5 rows=2
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=2 rows=6
+[sql-mcp] profile=shop ms=4 rows=0
+ok
+test_derived_values_are_masked (tests.conformance.conformance_suite.Masking.test_derived_values_are_masked) ... [sql-mcp] WARNING profile=analytics: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=analytics ms=14 rows=5
+[sql-mcp] profile=analytics ms=2 rows=3
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=2 rows=3
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=1 rows=4
+[sql-mcp] profile=analytics ms=3 rows=5
+[sql-mcp] profile=analytics ms=1 rows=3
+ok
+test_oracles_and_error_channel (tests.conformance.conformance_suite.Masking.test_oracles_and_error_channel) ... [sql-mcp] profile=analytics ms=14 rows=5
+[sql-mcp] profile=analytics ms=3 rows=5
+ok
+test_protocol (tests.conformance.conformance_suite.OverStdio.test_protocol) ... ok
+test_concurrency_queues_within_pool_size (tests.conformance.conformance_suite.Pooling.test_concurrency_queues_within_pool_size) ... [sql-mcp] profile=shop ms=318 rows=1
+[sql-mcp] profile=shop ms=308 rows=1
+[sql-mcp] profile=shop ms=309 rows=1
+[sql-mcp] profile=shop ms=329 rows=1
+[sql-mcp] profile=shop ms=326 rows=1
+[sql-mcp] profile=shop ms=611 rows=1
+[sql-mcp] profile=shop ms=627 rows=1
+[sql-mcp] profile=shop ms=628 rows=1
+[sql-mcp] profile=shop ms=917 rows=1
+[sql-mcp] profile=shop ms=931 rows=1
+[sql-mcp] profile=shop ms=931 rows=1
+[sql-mcp] profile=shop ms=1223 rows=1
+[sql-mcp] profile=shop ms=1234 rows=1
+[sql-mcp] profile=shop ms=1234 rows=1
+ok
+test_huge_result_streams_fast (tests.conformance.conformance_suite.Pooling.test_huge_result_streams_fast) ... [sql-mcp] profile=one ms=16 rows=1
+[sql-mcp] profile=one ms=6 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=4 rows=5
+[sql-mcp] profile=one ms=3 rows=10
+ok
+test_killed_connection_is_retried_once (tests.conformance.conformance_suite.Pooling.test_killed_connection_is_retried_once) ... [sql-mcp] profile=one ms=15 rows=1
+[sql-mcp] profile=one connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=one ms=16 rows=1
+ok
+test_no_database_means_no_database (tests.conformance.conformance_suite.Pooling.test_no_database_means_no_database) ... [sql-mcp] WARNING profile=nodb: the connection is NOT encrypted (tls=prefer). Set tls=verify-full and tls_ca to verify the server.
+[sql-mcp] profile=nodb ms=10 rows=1
+[sql-mcp] profile=nodb ms=2 rows=1
+ok
+test_reuse (tests.conformance.conformance_suite.Pooling.test_reuse) ... [sql-mcp] profile=one ms=10 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_truncation_and_errors_keep_the_connection (tests.conformance.conformance_suite.Pooling.test_truncation_and_errors_keep_the_connection) ... [sql-mcp] profile=one ms=9 rows=1
+[sql-mcp] profile=one ms=5 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=2 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=2 rows=10
+[sql-mcp] profile=one ms=3 rows=5
+[sql-mcp] profile=one ms=1 rows=10
+[sql-mcp] profile=one ms=1 rows=1
+[sql-mcp] profile=one ms=1 rows=1
+ok
+test_waiter_is_woken_when_a_connection_is_discarded (tests.conformance.conformance_suite.Pooling.test_waiter_is_woken_when_a_connection_is_discarded) ... [sql-mcp] profile=one ms=1017 rows=1
+[sql-mcp] profile=one ms=818 rows=1
+ok
+test_resource_is_complete_or_says_what_is_missing (tests.conformance.conformance_suite.SchemaCap.test_resource_is_complete_or_says_what_is_missing) ... [sql-mcp] profile=shop ms=27 rows=649
+[sql-mcp] profile=shop ms=5 rows=0
+ok
+test_engine_timeout_is_readable_and_keeps_the_connection (tests.conformance.conformance_suite.TimeLimits.test_engine_timeout_is_readable_and_keeps_the_connection) ... [sql-mcp] profile=one ms=13 rows=1
+[sql-mcp] profile=one ms=2 rows=1
+ok
+test_nothing_keeps_running_after_a_time_limit (tests.conformance.conformance_suite.TimeLimits.test_nothing_keeps_running_after_a_time_limit) ... ok
+test_disable_is_plaintext (tests.conformance.conformance_suite.Tls.test_disable_is_plaintext) ... [sql-mcp] profile=tls_disable ms=13 rows=1
+ok
+test_require_encrypts_or_refuses (tests.conformance.conformance_suite.Tls.test_require_encrypts_or_refuses) ... ok
+test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one (tests.conformance.conformance_suite.Tls.test_verify_full_succeeds_with_the_right_ca_and_fails_with_a_wrong_one) ... skipped 'no CA for this test server'
+test_answers_match_ground_truth (tests.conformance.conformance_suite.ToolContract.test_answers_match_ground_truth) ... [sql-mcp] profile=shop ms=16 rows=5
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_callers_row_limits_are_respected_exactly (tests.conformance.conformance_suite.ToolContract.test_callers_row_limits_are_respected_exactly) ... [sql-mcp] profile=shop ms=17 rows=5
+[sql-mcp] profile=shop ms=2 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=3 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=2 rows=3
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=3 rows=10
+ok
+test_caps (tests.conformance.conformance_suite.ToolContract.test_caps) ... [sql-mcp] profile=shop ms=17 rows=5
+[sql-mcp] profile=shop ms=2 rows=50
+[sql-mcp] profile=shop ms=3 rows=5
+[sql-mcp] profile=shop ms=6 rows=74
+[sql-mcp] profile=shop ms=2 rows=1
+ok
+test_cross_database_join_and_with (tests.conformance.conformance_suite.ToolContract.test_cross_database_join_and_with) ... [sql-mcp] profile=shop ms=17 rows=10
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=1 rows=1
+ok
+test_describe_errors (tests.conformance.conformance_suite.ToolContract.test_describe_errors) ... [sql-mcp] profile=shop ms=13 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+[sql-mcp] profile=shop ms=1 rows=0
+ok
+test_describe_table (tests.conformance.conformance_suite.ToolContract.test_describe_table) ... [sql-mcp] profile=shop ms=13 rows=5
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=9 rows=2
+ok
+test_explain (tests.conformance.conformance_suite.ToolContract.test_explain) ... [sql-mcp] profile=shop ms=11 rows=2
+ok
+test_list_databases (tests.conformance.conformance_suite.ToolContract.test_list_databases) ... [sql-mcp] profile=shop ms=12 rows=6
+[sql-mcp] profile=shop ms=1 rows=6
+ok
+test_list_profiles_never_shows_a_password (tests.conformance.conformance_suite.ToolContract.test_list_profiles_never_shows_a_password) ... ok
+test_list_tables (tests.conformance.conformance_suite.ToolContract.test_list_tables) ... [sql-mcp] profile=shop ms=14 rows=4
+[sql-mcp] profile=shop ms=3 rows=2
+ok
+test_sample_rows (tests.conformance.conformance_suite.ToolContract.test_sample_rows) ... [sql-mcp] profile=analytics ms=12 rows=2
+[sql-mcp] profile=shop ms=10 rows=20
+ok
+test_schema_resource (tests.conformance.conformance_suite.ToolContract.test_schema_resource) ... [sql-mcp] profile=shop ms=12 rows=19
+[sql-mcp] profile=shop ms=5 rows=3
+ok
+test_search_schema (tests.conformance.conformance_suite.ToolContract.test_search_schema) ... [sql-mcp] profile=shop ms=12 rows=0
+[sql-mcp] profile=shop ms=6 rows=1
+[sql-mcp] profile=shop ms=2 rows=2
+[sql-mcp] profile=shop ms=3 rows=1
+[sql-mcp] profile=shop ms=2 rows=0
+[sql-mcp] profile=shop ms=3 rows=0
+ok
+test_unknown_profile_lists_the_others (tests.conformance.conformance_suite.ToolContract.test_unknown_profile_lists_the_others) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 15.490s
+
+OK (skipped=3)

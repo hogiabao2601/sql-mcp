@@ -1,0 +1,1 @@
+{"profiles":{"maria":{"port":33326,"user":"readonly_user","password":"readonly-pw-test-only","database":"shop"}}}

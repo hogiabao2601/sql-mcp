@@ -1,0 +1,5 @@
+{"profiles": {
+ "ca_hostcheck":   {"port": 33316, "user": "readonly_user", "password": "readonly-pw-test-only", "database": "shop", "ssl_ca": "spikes/tls/ca.pem"},
+ "ca_nohostcheck": {"port": 33316, "user": "readonly_user", "password": "readonly-pw-test-only", "database": "shop", "ssl_ca": "spikes/tls/ca.pem", "ssl_check_hostname": false},
+ "wrong_ca":       {"port": 33316, "user": "readonly_user", "password": "readonly-pw-test-only", "database": "shop", "ssl_ca": "spikes/tls/wrong-ca.pem", "ssl_check_hostname": false}
+}}

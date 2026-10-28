@@ -1,0 +1,45 @@
+# PostgreSQL test databases for the conformance suite. TEST-ONLY credentials, never reuse them.
+#   docker compose -f docker/postgres.compose.yml up -d --wait                     # 17 only
+#   docker compose -f docker/postgres.compose.yml --profile matrix up -d --wait    # + 14 and 18
+#   docker compose -f docker/postgres.compose.yml --profile matrix down -v         # delete them and their data
+# Seed: ./pg-init (the mysql-init data, with MySQL databases as schemas of database `app`).
+name: sql-mcp-postgres
+
+x-postgres: &postgres
+  restart: "no"
+  environment:
+    POSTGRES_PASSWORD: rootpw-test-only
+    POSTGRES_DB: app
+  volumes:
+    - ./pg-init:/docker-entrypoint-initdb.d:ro
+  healthcheck:
+    test: ["CMD", "pg_isready", "-U", "postgres", "-d", "app", "-h", "127.0.0.1"]
+    interval: 5s
+    timeout: 5s
+    retries: 30
+    start_period: 10s
+
+services:
+  postgres-17:
+    <<: *postgres
+    image: postgres:17
+    container_name: sql-mcp-postgres-17
+    ports: ["127.0.0.1:${SQL_MCP_POSTGRES_PORT:-54329}:5432"]
+    # TLS on, with the test CA from ./pg-tls (run make-certs.sh first): tests verify-ca AND verify-full.
+    # PostgreSQL refuses a key others can read, so copy it with owner-only permissions before starting.
+    volumes:
+      - ./pg-init:/docker-entrypoint-initdb.d:ro
+      - ./pg-tls:/tls:ro
+    entrypoint: ["sh", "-c", "mkdir -p /etc/pgtls && cp /tls/server.crt /tls/server.key /etc/pgtls/ && chown postgres:postgres /etc/pgtls/server.* && chmod 600 /etc/pgtls/server.key && exec docker-entrypoint.sh postgres -c ssl=on -c ssl_cert_file=/etc/pgtls/server.crt -c ssl_key_file=/etc/pgtls/server.key"]
+  postgres-14:                         # oldest release still supported (until Nov 2026)
+    <<: *postgres
+    image: postgres:14
+    container_name: sql-mcp-postgres-14
+    profiles: [matrix]
+    ports: ["127.0.0.1:54314:5432"]
+  postgres-18:                         # newest release
+    <<: *postgres
+    image: postgres:18
+    container_name: sql-mcp-postgres-18
+    profiles: [matrix]
+    ports: ["127.0.0.1:54318:5432"]

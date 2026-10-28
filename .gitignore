@@ -1,0 +1,28 @@
+.venv/
+__pycache__/
+# real connection profiles (may hold hostnames/usernames); keep only the *.example.json and *.docker-test.json files in version control
+connections.json
+.gstack/
+# patched test profile written by tests/smoke_mysql.py when SQL_MCP_MYSQL_PORT differs from the JSON
+.smoke/
+# generated test-only TLS keys (docker/pg-tls/make-certs.sh)
+docker/pg-tls/*.key
+docker/pg-tls/*.crt
+docker/sr-tls/
+
+# large downloaded jar (docker/hive-lib/make or re-download via README)
+docker/hive-lib/*.jar
+docker/hive-lib/*.sha1
+
+# local env + tool caches
+.env
+.DS_Store
+.mypy_cache/
+.ruff_cache/
+
+# ruflo plugin state (not part of this project)
+.claude-flow/
+.swarm/
+ruvector.db
+agentdb.rvf
+agentdb.rvf.idmap.json

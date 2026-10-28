@@ -1,0 +1,23 @@
+== reflection: describe(orders) and a hyphenated table
+  mysql     raw      5.9 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mysql     sa      12.6 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mariadb   raw      3.4 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mariadb   sa       7.5 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  postgres  raw      7.8 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: NO ERROR ([['id', 'integer', 'NO'], ['note', 'text
+  postgres  sa      20.1 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: NO ERROR ([['id', 'INTEGER', False], ['note', 'TEX
+  sqlite    raw      0.1 ms  cols=4 fk_out=[['customer_id', 'customers', 'id']] fk_in=None  order-archive: NO ERROR ([['id', 'INTEGER', 0], ['note', 'TEXT', 
+  sqlite    sa       0.7 ms  cols=4 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: NO ERROR ([['id', 'INTEGER', True], ['note', 'TEXT
+== SQLite layer 2 without the guard (authorizer + mode=ro + query_only)
+  raw  ATTACH DATABASE '/Users/bao.ho/Projects/ -> DatabaseError: not authorized
+  raw  PRAGMA query_only = OFF                  -> DatabaseError: not authorized
+  raw  DELETE FROM orders                       -> DatabaseError: not authorized
+  raw  CREATE TABLE t2 (x)                      -> DatabaseError: not authorized
+  raw  SELECT load_extension('x')               -> OperationalError: not authorized
+  raw  VACUUM INTO '/tmp/sqlmcp-copy.db'        -> DatabaseError: authorization denied
+  sa   ATTACH DATABASE '/Users/bao.ho/Projects/ -> DatabaseError: (sqlite3.DatabaseError) not authorized
+  sa   PRAGMA query_only = OFF                  -> DatabaseError: (sqlite3.DatabaseError) not authorized
+  sa   DELETE FROM orders                       -> DatabaseError: (sqlite3.DatabaseError) not authorized
+  sa   CREATE TABLE t2 (x)                      -> DatabaseError: (sqlite3.DatabaseError) not authorized
+  sa   SELECT load_extension('x')               -> OperationalError: (sqlite3.OperationalError) not authorized
+  sa   VACUUM INTO '/tmp/sqlmcp-copy.db'        -> DatabaseError: (sqlite3.DatabaseError) authorization denied
+  attached.db created: False   /tmp/sqlmcp-copy.db created: False

@@ -1,0 +1,15 @@
+[sqlite SQLite 3.54.1 (in-process) on 0]
+  execute_query('SELECT 1')  : 0.15 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 954 chars
+  50 truncated queries       : 0.38 ms/call, same session after: True
+[mysql 8.4.13 on 33316]
+  execute_query('SELECT 1')  : 0.62 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.021 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 1.63 ms/call, same session after: True
+[postgres 17.11 (Debian 17.11-1.pgdg13+2) on 54329]
+  execute_query('SELECT 1')  : 1.98 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.012 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 5.06 ms/call, same session after: True

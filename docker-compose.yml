@@ -1,0 +1,37 @@
+# Throwaway MySQL for testing mysql_server.py. TEST-ONLY credentials, never reuse them.
+#
+#   docker compose up -d --wait      # start + seed (waits until healthy)
+#   docker compose down -v           # stop and DELETE the container and its data volume
+#
+# The "name" below scopes every command to this project, so other containers you
+# have are never touched. Seed scripts in ./mysql-init run only when the data volume
+# is empty (first start). To re-seed from scratch: docker compose down -v && up -d --wait
+name: sql-mcp-mysql
+
+services:
+  mysql:
+    image: mysql:8.4                 # 8.4 = current LTS series (amd64 + arm64)
+    container_name: sql-mcp-mysql
+    restart: "no"                    # never auto-start after a reboot
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw-test-only
+      MYSQL_DATABASE: shop           # created by the entrypoint; tables come from ./mysql-init
+    ports:
+      # localhost only, and not 3306 so it can't clash with a real MySQL. The host port comes from
+      # SQL_MCP_MYSQL_PORT in .env (default 33316); 33306 stays free for the original claude-mcp stack.
+      - "127.0.0.1:${SQL_MCP_MYSQL_PORT:-33316}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # -h 127.0.0.1 forces TCP, so this only passes once the FINAL server is up,
+      # not the temporary init server (which listens on a socket only).
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-prootpw-test-only", "--silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 15s
+
+volumes:
+  mysql-data:
+    name: sql-mcp-mysql-data

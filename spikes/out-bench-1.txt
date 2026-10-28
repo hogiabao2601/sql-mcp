@@ -1,0 +1,46 @@
+
+== 200 sequential SELECT 1 (pooled)
+  mysql     raw    0.38 ms/call
+  mysql     sa     1.16 ms/call
+  mariadb   raw    0.28 ms/call
+  mariadb   sa     1.06 ms/call
+  postgres  raw    1.61 ms/call
+  postgres  sa     2.13 ms/call
+  sqlite    raw    0.00 ms/call
+  sqlite    sa     0.02 ms/call
+
+== 729,000-row cross join capped to 100 rows: time, Python peak memory
+  mysql     raw stream+discard    0.034s  peak    0.8 MB  rows=100 truncated='row limit 100'  next call 9.6 ms
+  mysql     raw stream+drain      1.361s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 1.2 ms
+  mysql     raw LIMIT injected    0.022s  peak    0.7 MB  rows=100 truncated='row limit 100'  next call 0.5 ms
+  mysql     sa  result.close()    1.419s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 2.3 ms
+  mysql     sa  invalidate()      0.004s  peak    0.1 MB  rows=100 truncated='row limit 100'  next call 17.5 ms
+  mariadb   raw stream+discard    0.006s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 10.5 ms
+  mariadb   raw stream+drain      1.409s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 1.1 ms
+  mariadb   raw LIMIT injected    0.002s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 0.4 ms
+  mariadb   sa  result.close()    1.452s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 3.1 ms
+  mariadb   sa  invalidate()      0.004s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 12.9 ms
+  postgres  raw stream+discard    0.003s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 2.2 ms
+  postgres  raw stream+drain      0.003s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 2.2 ms
+  postgres  raw LIMIT injected    0.010s  peak    0.5 MB  rows=100 truncated='row limit 100'  next call 2.8 ms
+  postgres  sa  result.close()    0.004s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 2.3 ms
+  postgres  sa  invalidate()      0.003s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 8.9 ms
+  sqlite    raw stream+discard    0.000s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 0.0 ms
+  sqlite    raw stream+drain      0.000s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 0.0 ms
+  sqlite    raw LIMIT injected    0.006s  peak    0.3 MB  rows=100 truncated='row limit 100'  next call 0.0 ms
+  sqlite    sa  result.close()    0.000s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 0.0 ms
+  sqlite    sa  invalidate()      0.000s  peak    0.0 MB  rows=100 truncated='row limit 100'  next call 0.1 ms
+
+== layer 2 alone (no guard): a WRITER account tries to write
+  mysql     raw  DELETE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mysql     sa   DELETE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mariadb   raw  DELETE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction')
+  mariadb   sa   DELETE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction')
+  postgres  raw  DELETE -> SyntaxError: syntax error at or near "DELETE"
+  postgres  sa   DELETE -> ProgrammingError: (psycopg.errors.SyntaxError) syntax error at or near "DELETE"
+  sqlite    raw  DELETE -> DatabaseError: not authorized
+  sqlite    sa   DELETE -> DatabaseError: (sqlite3.DatabaseError) not authorized
+
+== PostgreSQL: can a SELECT switch layer 2 off for LATER calls? (writer, pool_size 1)
+  raw  set_config -> NO ERROR ({'columns': ['set_config'], 'r
+  sa   set_config -> NO ERROR ({'columns': ['set_config'], 'r

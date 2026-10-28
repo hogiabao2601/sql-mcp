@@ -1,0 +1,20 @@
+[mysql 8.4.13 on 33316]
+  execute_query('SELECT 1')  : 0.42 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 1.19 ms/call, same session after: True
+[mariadb 10.11.19-MariaDB-ubu2204 on 33327]
+  execute_query('SELECT 1')  : 0.44 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 0.99 ms/call, same session after: True
+[mariadb 11.4.13-MariaDB-ubu2404 on 33326]
+  execute_query('SELECT 1')  : 0.42 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 0.97 ms/call, same session after: True
+[mariadb 11.8.9-MariaDB-ubu2404 on 33328]
+  execute_query('SELECT 1')  : 0.44 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 1.08 ms/call, same session after: True

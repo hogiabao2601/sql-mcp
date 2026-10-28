@@ -1,0 +1,5 @@
+[starrocks StarRocks 4.1.1-14b7e3f on 39030]
+  execute_query('SELECT 1')  : 5.49 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.025 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 17.07 ms/call, same session after: True

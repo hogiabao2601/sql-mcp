@@ -1,0 +1,22 @@
+
+== layer 2 alone (no guard): a WRITER account tries to write (plain cursor)
+  mysql     raw  DELETE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mysql     raw  CREATE TEMPORARY TABLE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mysql     sa   DELETE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mysql     sa   CREATE TEMPORARY TABLE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction.')
+  mariadb   raw  DELETE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction')
+  mariadb   raw  CREATE TEMPORARY TABLE -> OperationalError: (1792, 'Cannot execute statement in a READ ONLY transaction')
+  mariadb   sa   DELETE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction')
+  mariadb   sa   CREATE TEMPORARY TABLE -> OperationalError: (pymysql.err.OperationalError) (1792, 'Cannot execute statement in a READ ONLY transaction')
+  postgres  raw  DELETE -> ReadOnlySqlTransaction: cannot execute DELETE in a read-only transaction
+  postgres  sa   DELETE -> InternalError: (psycopg.errors.ReadOnlySqlTransaction) cannot execute DELETE in a read-only transaction
+  sqlite    raw  DELETE -> DatabaseError: not authorized
+  sqlite    sa   DELETE -> DatabaseError: (sqlite3.DatabaseError) not authorized
+
+== PostgreSQL: can SQL switch layer 2 off? (writer, pool_size 1, plain cursor)
+  raw  set_config(transaction_read_only) in the same txn -> ActiveSqlTransaction: transaction read-write mode must be set before any query
+       set_config(default_..., session) -> NO ERROR (1); next call sees -> , 'rows': )
+       then DELETE -> ReadOnlySqlTransaction: cannot execute DELETE in a read-only transaction
+  sa   set_config(transaction_read_only) in the same txn -> InternalError: (psycopg.errors.ActiveSqlTransaction) transaction read-write mode must be s
+       set_config(default_..., session) -> NO ERROR (1); next call sees -> , 'rows': )
+       then DELETE -> InternalError: (psycopg.errors.ReadOnlySqlTransaction) cannot execute DELETE in a read-only transact

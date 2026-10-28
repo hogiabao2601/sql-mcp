@@ -1,0 +1,12 @@
+run('SELECT 1')            : 0.34 ms/call (200 sequential)
+execute_query('SELECT 1')  : 0.30 ms/call (200 sequential, includes the guard)
+729,000-row query, cap 100 : 0.034 s, Python peak 0.8 MB, max RSS +1.4 MB, next call 8.7 ms, new connections 1
+40-row result size         : 1049 chars
+50 truncated queries       : 8.88 ms/call, new connections 49
+
+run('SELECT 1')            : 0.30 ms/call (200 sequential)
+execute_query('SELECT 1')  : 0.30 ms/call (200 sequential, includes the guard)
+729,000-row query, cap 100 : 0.034 s, Python peak 0.8 MB, max RSS +1.9 MB, next call 9.0 ms, new connections 1
+40-row result size         : 1049 chars
+50 truncated queries       : 8.65 ms/call, new connections 49
+

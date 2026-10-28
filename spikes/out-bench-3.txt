@@ -1,0 +1,20 @@
+
+== server/engine timeout = 1000 ms on a heavy query
+  mysql     raw   1.02s  OperationalError: (3024, 'Query execution was interrupted, maximum statement execution time exceeded
+  mysql     sa    1.02s  OperationalError: (pymysql.err.OperationalError) (3024, 'Query execution was interrupted, maximum st
+  mariadb   raw   1.02s  OperationalError: (1969, 'Query execution was interrupted (max_statement_time exceeded)')
+  mariadb   sa    1.02s  OperationalError: (pymysql.err.OperationalError) (1969, 'Query execution was interrupted (max_statem
+  postgres  raw   1.05s  QueryCanceled: canceling statement due to statement timeout
+  postgres  sa    1.04s  OperationalError: (psycopg.errors.QueryCanceled) canceling statement due to statement timeout
+  sqlite    raw   1.00s  OperationalError: interrupted
+  sqlite    sa    1.00s  OperationalError: (sqlite3.OperationalError) interrupted
+  mariadb   raw  SHOW ... WHERE subquery:  1.02s  OperationalError: (1969, 'Query execution was interrupted (max_statement_time exceeded)')
+
+== reflection: describe(orders) and a hyphenated table
+  mysql     raw      4.2 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mysql     sa      13.9 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mariadb   raw      4.5 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  mariadb   sa       7.1 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: n/a (not in this seed)
+  postgres  raw      7.6 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: NO ERROR ([['id', 'integer', 'NO'], ['note', 'text
+  postgres  sa      26.2 ms  cols=5 fk_out=[['customer_id', 'customers', 'id']] fk_in=[['order_items', 'order_id']]  order-archive: NO ERROR ([['id', 'INTEGER', False], ['note', 'TEX
+sqlite3.DatabaseError: not authorized

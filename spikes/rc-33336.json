@@ -1,0 +1,1 @@
+{"profiles": {"p": {"port": 33336, "user": "readonly_user", "password": "readonly-pw-test-only", "database": "shop"}}}

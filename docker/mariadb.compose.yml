@@ -1,0 +1,39 @@
+# MariaDB test databases for the conformance suite. TEST-ONLY credentials, never reuse them.
+#   docker compose -f docker/mariadb.compose.yml up -d --wait                     # 11.4 LTS only
+#   docker compose -f docker/mariadb.compose.yml --profile matrix up -d --wait    # + 10.11 and 11.8
+#   docker compose -f docker/mariadb.compose.yml --profile matrix down -v         # delete them and their data
+# Same seed as MySQL (../mysql-init, unchanged), so every engine answers the same questions.
+name: sql-mcp-mariadb
+
+x-mariadb: &mariadb
+  restart: "no"
+  environment:
+    MARIADB_ROOT_PASSWORD: rootpw-test-only
+    MARIADB_DATABASE: shop
+  volumes:
+    - ../mysql-init:/docker-entrypoint-initdb.d:ro
+  healthcheck:
+    test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+    interval: 5s
+    timeout: 5s
+    retries: 30
+    start_period: 15s
+
+services:
+  mariadb-11.4:                       # long-term support until 2029
+    <<: *mariadb
+    image: mariadb:11.4
+    container_name: sql-mcp-mariadb-11.4
+    ports: ["127.0.0.1:${SQL_MCP_MARIADB_PORT:-33326}:3306"]
+  mariadb-10.11:                      # long-term support until 2028; still has only tx_read_only
+    <<: *mariadb
+    image: mariadb:10.11
+    container_name: sql-mcp-mariadb-10.11
+    profiles: [matrix]
+    ports: ["127.0.0.1:33327:3306"]
+  mariadb-11.8:                       # newest long-term support release
+    <<: *mariadb
+    image: mariadb:11.8
+    container_name: sql-mcp-mariadb-11.8
+    profiles: [matrix]
+    ports: ["127.0.0.1:33328:3306"]

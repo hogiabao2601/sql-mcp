@@ -1,0 +1,28 @@
+{
+  "default": "shop",
+  "profiles": {
+    "shop": {
+      "host": "127.0.0.1",
+      "port": 33316,
+      "user": "readonly_user",
+      "password_env": "TEST_RO_PASSWORD",
+      "database": "shop",
+      "pool_size": 3
+    },
+    "analytics": {
+      "host": "127.0.0.1",
+      "port": 33316,
+      "user": "readonly_user",
+      "password_env": "TEST_RO_PASSWORD",
+      "database": "analytics",
+      "mask_columns": ["password", "token", "email"]
+    },
+    "writer-session-test": {
+      "host": "127.0.0.1",
+      "port": 33316,
+      "user": "app_writer",
+      "password_env": "TEST_RW_PASSWORD",
+      "database": "shop"
+    }
+  }
+}

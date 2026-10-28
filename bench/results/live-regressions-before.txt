@@ -1,0 +1,31 @@
+test_r18_same_database_sends_no_init_db (live_mysql_regressions.Regressions.test_r18_same_database_sends_no_init_db) ... [mysql-server] profile=one ms=1 rows=1
+FAIL
+test_r1_waiter_gets_a_connection_when_the_busy_one_is_discarded (live_mysql_regressions.Regressions.test_r1_waiter_gets_a_connection_when_the_busy_one_is_discarded) ... [mysql-server] profile=one ms=1003 rows=1
+FAIL
+test_r2_no_database_means_no_database_not_the_previous_calls (live_mysql_regressions.Regressions.test_r2_no_database_means_no_database_not_the_previous_calls) ... [mysql-server] profile=nodb ms=1 rows=1
+FAIL
+test_r3_client_deadline_kills_the_query_and_never_retries (live_mysql_regressions.Regressions.test_r3_client_deadline_kills_the_query_and_never_retries) ... [mysql-server] profile=one connection was lost, purging idle connections and retrying once
+FAIL
+test_r6_failed_statements_keep_their_connection (live_mysql_regressions.Regressions.test_r6_failed_statements_keep_their_connection) ... [mysql-server] profile=shop ms=1 rows=1
+FAIL
+test_server_timeout_mid_stream_leaves_a_reusable_connection (live_mysql_regressions.Regressions.test_server_timeout_mid_stream_leaves_a_reusable_connection) ... [mysql-server] profile=one ms=1 rows=1
+FAIL
+FAIL: test_r18_same_database_sends_no_init_db (live_mysql_regressions.Regressions.test_r18_same_database_sends_no_init_db)
+AssertionError: 20 != 0
+FAIL: test_r1_waiter_gets_a_connection_when_the_busy_one_is_discarded (live_mysql_regressions.Regressions.test_r1_waiter_gets_a_connection_when_the_busy_one_is_discarded)
+AssertionError: 'ok' not found in {'err': "All 1 connections of profile 'one' are busy. after 10.0s"} : {'err': "All 1 connections of profile 'one' are busy. after 10.0s"}
+FAIL: test_r2_no_database_means_no_database_not_the_previous_calls (live_mysql_regressions.Regressions.test_r2_no_database_means_no_database_not_the_previous_calls)
+AssertionError: Lists differ: [['analytics']] != [[None]]
+FAIL: test_r3_client_deadline_kills_the_query_and_never_retries (live_mysql_regressions.Regressions.test_r3_client_deadline_kills_the_query_and_never_retries)
+TimeoutError: The read operation timed out
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query (The read operation timed out)')
+TimeoutError: The read operation timed out
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query (The read operation timed out)')
+mcp.server.mcpserver.exceptions.ToolError: MySQL connection was lost twice in a row. Is the server up?
+AssertionError: "ms limit" does not match "MySQL connection was lost twice in a row. Is the server up?"
+FAIL: test_r6_failed_statements_keep_their_connection (live_mysql_regressions.Regressions.test_r6_failed_statements_keep_their_connection)
+AssertionError: 9 != 0
+FAIL: test_server_timeout_mid_stream_leaves_a_reusable_connection (live_mysql_regressions.Regressions.test_server_timeout_mid_stream_leaves_a_reusable_connection)
+AssertionError: ToolError not raised
+Ran 6 tests in 44.581s
+FAILED (failures=6)

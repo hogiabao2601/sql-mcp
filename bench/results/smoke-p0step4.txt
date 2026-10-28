@@ -1,0 +1,120 @@
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=0 rows=1
+[sql-mcp] profile=shop ms=9 rows=1
+[sql-mcp] profile=shop ms=2 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop ms=302 rows=1
+[sql-mcp] profile=shop ms=314 rows=1
+[sql-mcp] profile=shop ms=314 rows=1
+[sql-mcp] profile=shop ms=606 rows=1
+[sql-mcp] profile=shop ms=615 rows=1
+[sql-mcp] profile=shop ms=615 rows=1
+[sql-mcp] profile=shop ms=907 rows=1
+[sql-mcp] profile=shop ms=917 rows=1
+[sql-mcp] profile=shop ms=917 rows=1
+[sql-mcp] profile=shop ms=1210 rows=1
+[sql-mcp] profile=shop ms=1219 rows=1
+[sql-mcp] profile=shop ms=1219 rows=1
+[sql-mcp] profile=shop ms=1 rows=1
+[sql-mcp] profile=shop connection was lost, purging idle connections and retrying once
+[sql-mcp] profile=shop ms=20 rows=1
+
+=== Part A: over real stdio JSON-RPC ===
+PASS  initialize: name/version
+PASS  capabilities: tools + resources + prompts
+PASS  tools/list: 8 tools
+PASS  every tool is annotated read-only
+PASS  list_profiles: 3 profiles, default shop
+PASS  list_profiles never leaks a password
+PASS  list_databases: shop+analytics, no system schemas
+PASS  list_databases include_system
+PASS  list_tables (default db shop): 4 tables
+PASS  list_tables database=analytics
+PASS  describe_table: columns
+PASS  describe_table: FK out (references)
+PASS  describe_table: FK in (referenced_by)
+PASS  describe_table: indexes
+PASS  describe_table unknown table -> readable error
+PASS  describe_table injection attempt rejected
+PASS  database injection attempt rejected
+PASS  search_schema email in analytics
+PASS  search_schema 'order' finds tables
+PASS  search_schema escapes LIKE wildcard (no match-all)
+PASS  masking: password_hash/api_token/email are ***
+PASS  masking: reported in 'masked' and id not masked
+PASS  masking survives an alias (original column name is checked)
+INFO  known limitation: expression + alias is NOT masked -> masked (use column-level GRANTs for real protection)
+PASS  shop profile does not mask email (default mask list)
+PASS  sample_rows limit clamped to 20
+PASS  execute_query matches ground truth (yesterday)
+PASS  cross-database query works (shop JOIN analytics)
+PASS  WITH ... SELECT allowed
+PASS  row cap: 50 rows + truncated flag
+PASS  size cap: stops before 1000 rows, flagged
+PASS  cell cap: 5000-char value cut to 500 + note
+PASS  huge result streams: 729,000-row cross join returns 10 rows in <2s
+PASS  timeout: a query that must evaluate 5.9B row combinations is killed at ~5s with a readable message
+PASS  server still healthy after the timeout
+PASS  guard blocks DROP with a reason
+PASS  guard blocks comment with a reason
+PASS  guard blocks stacked with a reason
+PASS  guard blocks sleep with a reason
+PASS  guard blocks outfile with a reason
+PASS  guard blocks explain analyze with a reason
+PASS  unknown profile -> lists available ones
+PASS  explain_query returns a plan (key=PRIMARY)
+PASS  explain_query rejects non-SELECT
+PASS  resource template advertised
+PASS  resource: whole schema incl. FK
+PASS  prompts listed
+PASS  prompt renders the question
+INFO  40-row result: v2 compact = 1049 chars vs v1 dict-per-row shape = 2759 chars (62% smaller)
+
+=== Part B: layers 2 and 3, pool, concurrency, kill/retry (imports the module) ===
+PASS  layer 3 (SELECT-only user) blocks DELETE
+PASS  layer 2 (writer user, session is read-only) blocks DELETE
+PASS  orders untouched
+PASS  pool reuse: 40 more calls opened exactly 0 new connections
+PASS  concurrency: 12 parallel calls, 0 errors
+PASS  concurrency: never more than pool_size(3) connections in total
+PASS  concurrency: queued, not serial (4 waves of 0.3s, not 12)
+PASS  kill/retry: server killed 3 connection(s); next call still succeeds
+PASS  wrong password: clear error, password not leaked
+
+ALL CHECKS PASSED

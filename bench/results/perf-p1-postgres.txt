@@ -1,0 +1,25 @@
+[mysql 8.4.13 on 33316]
+  execute_query('SELECT 1')  : 0.40 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 1.05 ms/call, same session after: True
+[mariadb 11.4.13-MariaDB-ubu2404 on 33326]
+  execute_query('SELECT 1')  : 0.45 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.004 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 1.14 ms/call, same session after: True
+[postgres PostgreSQL 14.24 (Debian 14.24-1.pgdg13+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit on 54314]
+  execute_query('SELECT 1')  : 0.94 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.008 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 3.02 ms/call, same session after: True
+[postgres PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit on 54329]
+  execute_query('SELECT 1')  : 0.95 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.009 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 2.78 ms/call, same session after: True
+[postgres PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit on 54318]
+  execute_query('SELECT 1')  : 0.95 ms/call (200 sequential)
+  729,000-row query, cap 100 : 0.009 s, Python peak 0.0 MB, same session after: True
+  40-row result size         : 1049 chars
+  50 truncated queries       : 3.00 ms/call, same session after: True

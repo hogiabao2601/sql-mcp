@@ -1,0 +1,102 @@
+'CALL do_things()' contains unsupported syntax. Falling back to parsing as a 'Command'.
+'DO $$BEGIN DELETE FROM t; END$$' contains unsupported syntax. Falling back to parsing as a 'Command'.
+'VACUUM INTO '/tmp/copy.db'' contains unsupported syntax. Falling back to parsing as a 'Command'.
+sqlglot 30.25.0
+dialect   expect  got                                                  sql
+mysql     ok      ok                                                   SELECT 1
+mysql     ok      ok                                                     select * from orders;  
+mysql     ok      ok                                                   WITH x AS (SELECT 1 AS a) SELECT * FROM x
+mysql     ok      ok                                                   SELECT 'a;b' AS semicolon_in_string
+mysql     ok      ok                                                   SELECT '#tag' AS hash_in_string
+mysql     ok      ok                                                   SELECT * FROM t WHERE note LIKE '%into update delete%'
+mysql     ok      ok                                                   SELECT update_time, create_time FROM information_schema.tables
+mysql     ok      ok                                                   SELECT REPLACE(name, 'a', 'b') FROM t
+mysql     ok      ok                                                   SELECT `delete` FROM t
+mysql     reject  reject: root is Show                                 SHOW TABLES
+mysql     reject  reject: root is Show                                 SHOW CREATE TABLE orders
+mysql     reject  reject: root is Describe                             DESCRIBE orders
+mysql     reject  reject: root is Describe                             EXPLAIN SELECT * FROM orders
+mysql     reject  reject: root is Drop                                 DROP TABLE orders
+mysql     reject  reject: root is Delete                               DELETE FROM orders
+mysql     reject  reject: root is Update                               UPDATE t SET a=1
+mysql     reject  reject: root is Insert                               INSERT INTO t VALUES (1)
+mysql     reject  reject: root is Set                                  SET GLOBAL read_only=0
+mysql     reject  reject: root is Command                              CALL do_things()
+mysql     reject  reject: parse error (Invalid expression / Unexpected LOAD DATA INFILE 'x' INTO TABLE t
+mysql     reject  reject: 2 statements                                 SELECT 1; DELETE FROM t
+mysql     reject  reject: 2 statements                                 SELECT 1;DELETE FROM t
+mysql     reject  reject: MySQL executable comment                     SELECT 1 /*!INTO OUTFILE '/tmp/x'*/
+mysql     reject  reject: parse error (Invalid expression / Unexpected SELECT 1--1 INTO OUTFILE '/tmp/x'
+mysql     reject  reject: parse error (Invalid expression / Unexpected SELECT * INTO OUTFILE '/tmp/x' FROM t
+mysql     reject  reject: parse error (Invalid expression / Unexpected SELECT 1 INTO/**/OUTFILE '/tmp/x'
+mysql     reject  reject: parse error (Invalid expression / Unexpected SELECT 1 INTO DUMPFILE '/tmp/x'
+mysql     reject  reject: function sleep()                             SELECT SLEEP(5)
+mysql     reject  reject: function benchmark()                         SELECT BENCHMARK(1000000, MD5('a'))
+mysql     reject  reject: function get_lock()                          SELECT GET_LOCK('a', 1)
+mysql     reject  reject: function load_file()                         SELECT LOAD_FILE('/etc/passwd')
+mysql     reject  reject: root is Describe                             EXPLAIN ANALYZE SELECT 1
+mysql     reject  reject: contains Lock                                SELECT * FROM t FOR UPDATE
+mysql     reject  reject: root is Delete                               WITH x AS (SELECT 1) DELETE FROM t
+mysql     reject  reject: 0 statements                                 
+mysql     reject  reject: 0 statements                                    
+mysql     ok      ok                                                   SELECT load FROM servers
+mysql     ok      ok                                                   SELECT c.amount AS `call` FROM t c
+mysql     ok      ok                                                   SELECT h.* FROM handler h
+mysql     ok      ok                                                   SELECT 1--1
+mysql     ok      ok                                                   (SELECT 1) UNION (SELECT 2)
+mysql     ok      ok                                                   SELECT * FROM t WHERE kill_switch = 0
+mysql     reject  reject: function sleep()                             SELECT `sleep`(3)
+mysql     reject  reject: root is Describe                             DESC ANALYZE SELECT 1
+mysql     reject  reject: contains Lock                                SELECT id FROM t FOR SHARE
+mysql     reject  reject: contains Lock                                SELECT id FROM t LOCK IN SHARE MODE
+mysql     reject  reject: function source_pos_wait()                   SELECT SOURCE_POS_WAIT('f', 4, 10)
+mysql     reject  reject: root is Show                                 SHOW DATABASES WHERE (SELECT COUNT(*) FROM a, b) > 0
+mysql     reject  reject: parse error (Error tokenizing 'SELECT 'a\',  SELECT 'a\', 1 INTO OUTFILE '/tmp/x'
+postgres  ok      ok                                                   SELECT 1
+postgres  ok      ok                                                   WITH x AS (SELECT 1 AS a) SELECT a FROM x
+postgres  ok      ok                                                   SELECT "order-archive".id FROM shop."order-archive"
+postgres  ok      ok                                                   SELECT $$it's$$ AS dollar_quoted
+postgres  ok      ok                                                   SELECT 'a\' AS standard_string
+postgres  ok      ok                                                   SELECT E'a\'b' AS escape_string
+postgres  reject  reject: contains Delete                              WITH d AS (DELETE FROM shop.orders RETURNING *) SELECT * FROM d
+postgres  reject  reject: function set_config()                        SELECT set_config('default_transaction_read_only', 'off', false)
+postgres  reject  reject: function pg_sleep()                          SELECT pg_sleep(10)
+postgres  reject  reject: contains Lock                                SELECT * FROM shop.orders FOR UPDATE
+postgres  reject  reject: contains Lock                                SELECT * FROM shop.orders FOR KEY SHARE
+postgres  reject  reject: root is Copy                                 COPY shop.orders TO '/tmp/x'
+postgres  reject  reject: function lo_import()                         SELECT lo_import('/etc/passwd')
+postgres  reject  reject: contains Into                                SELECT * INTO new_t FROM shop.orders
+postgres  reject  reject: root is Set                                  SET default_transaction_read_only = off
+postgres  reject  reject: root is Transaction                          BEGIN READ WRITE
+postgres  ok      ok                                                   SELECT nextval('s')
+postgres  reject  reject: 2 statements                                 SELECT 1; SELECT 2
+postgres  reject  reject: root is Command                              DO $$BEGIN DELETE FROM t; END$$
+postgres  ok      ok                                                   SELECT * FROM generate_series(1, 3) AS g(i) WHERE i > 1 ORDER BY 1 LIM
+sqlite    ok      ok                                                   SELECT 1
+sqlite    ok      ok                                                   SELECT * FROM "order-archive"
+sqlite    reject  reject: root is Attach                               ATTACH DATABASE '/tmp/x.db' AS x
+sqlite    reject  reject: root is Pragma                               PRAGMA query_only = OFF
+sqlite    reject  reject: function load_extension()                    SELECT load_extension('x')
+sqlite    reject  reject: root is Command                              VACUUM INTO '/tmp/copy.db'
+sqlite    ok      ok                                                   WITH RECURSIVE c(x) AS (SELECT 1 UNION ALL SELECT x + 1 FROM c) SELECT
+tsql      ok      ok                                                   SELECT TOP 5 [order id] FROM dbo.[order items] WITH (NOLOCK)
+tsql      reject  reject: contains Into                                SELECT * INTO #tmp FROM t
+oracle    ok      ok                                                   SELECT * FROM shop.orders WHERE ROWNUM <= 5
+oracle    ok      ok                                                   SELECT * FROM shop.orders FETCH FIRST 5 ROWS ONLY
+mariadb   ok      ok                                                   SELECT JSON_VALUE(doc, '$.a') FROM t
+
+81 cases, 0 mismatches
+
+== masking by source column (policy: masked columns only as bare top-level output)
+  ('ok', ['api_token'])                                                          | SELECT id, api_token FROM app_users
+  ('ok', ['x'])                                                                  | SELECT api_token AS x FROM app_users
+  ('ok', ['email', 'password_hash', 'api_token'])                                | SELECT * FROM app_users
+  ('refuse', 'app_users.api_token used in an expression/clause')                 | SELECT CONCAT(api_token, '') AS x FROM app_users
+  ('refuse', 'app_users.api_token used in an expression/clause')                 | SELECT 'n/a' AS x UNION ALL SELECT api_token FROM app_users
+  ('refuse', 'app_users.api_token used in an expression/clause')                 | SELECT t.x FROM (SELECT api_token AS x FROM app_users) t
+  ('refuse', 'app_users.api_token used in an expression/clause')                 | SELECT EXTRACTVALUE(1, CONCAT(0x7e, (SELECT api_token FROM app_users LIMIT 1))) 
+  ('refuse', 'app_users.api_token used in an expression/clause')                 | SELECT id FROM app_users WHERE api_token LIKE 'tok_a%'
+  ('ok', [])                                                                     | SELECT u.id, COUNT(*) FROM app_users u JOIN page_views v ON v.user_id = u.id GRO
+  ('ok', [])                                                                     | SELECT id, created_at FROM app_users
+perf: classify: 0.38 ms per query
+perf: mask_plan (qualify): 0.49 ms per query

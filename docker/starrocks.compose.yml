@@ -1,0 +1,81 @@
+# StarRocks test database for the conformance suite. TEST-ONLY: user root has NO password in this image.
+#   docker compose -f docker/starrocks.compose.yml up -d --wait
+#   docker compose -f docker/starrocks.compose.yml down -v
+#   docker compose -f docker/starrocks.compose.yml --profile ext up -d --wait   # + S3 (SeaweedFS) and Iceberg REST
+# Needs about 1 GB idle, 4 GB recommended by StarRocks; capped at 3.5 GB to protect other containers.
+# The seed (tests/fixtures/starrocks_seed.sql) is loaded by the conformance suite on first use, because
+# the all-in-one image has no init-script directory.
+name: sql-mcp-starrocks
+
+services:
+  starrocks:
+    image: starrocks/allin1-ubuntu:${SQL_MCP_STARROCKS_TAG:-4.1.1}
+    container_name: sql-mcp-starrocks
+    restart: "no"
+    mem_limit: 3500m
+    ports: ["127.0.0.1:${SQL_MCP_STARROCKS_PORT:-39030}:9030"]
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -h127.0.0.1 -P9030 -uroot -N -e 'SHOW BACKENDS' | grep -q true"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+  # --- profile "ext": external catalogs and S3, for tests/conformance/starrocks_external.py ---
+  # SeaweedFS stands in for S3 (the MinIO images are no longer published). TEST-ONLY keys in s3/s3.json:
+  # "lake" (used by the catalogs) and "attacker" (bucket exfil only; proves keys can be given inside SQL).
+  seaweedfs:
+    image: chrislusf/seaweedfs:4.50
+    container_name: sql-mcp-seaweedfs
+    profiles: [ext]
+    restart: "no"
+    command: ["server", "-dir=/data", "-ip=seaweedfs", "-s3", "-s3.port=8333", "-s3.config=/etc/s3/s3.json",
+              "-master.volumeSizeLimitMB=64", "-volume.max=50"]
+    volumes: ["./s3:/etc/s3:ro"]
+    ports: ["127.0.0.1:38333:8333"]
+    mem_limit: 512m
+
+  iceberg-rest:
+    image: apache/iceberg-rest-fixture:1.10.1
+    container_name: sql-mcp-iceberg-rest
+    profiles: [ext]
+    restart: "no"
+    depends_on: [seaweedfs]
+    environment:
+      CATALOG_WAREHOUSE: s3://warehouse/
+      CATALOG_IO__IMPL: org.apache.iceberg.aws.s3.S3FileIO
+      CATALOG_S3_ENDPOINT: http://seaweedfs:8333
+      CATALOG_S3_PATH__STYLE__ACCESS: "true"
+      AWS_ACCESS_KEY_ID: sqlmcp-lake
+      AWS_SECRET_ACCESS_KEY: sqlmcp-lake-secret-test-only
+      AWS_REGION: us-east-1
+    mem_limit: 768m
+
+  hive-metastore:
+    image: apache/hive:standalone-metastore-4.2.1
+    container_name: sql-mcp-hive-metastore
+    profiles: [ext]
+    restart: "no"
+    depends_on: [seaweedfs]
+    environment:
+      SERVICE_NAME: metastore
+      DB_DRIVER: derby
+      # S3A so the metastore can create warehouse dirs on SeaweedFS; StarRocks does the data I/O itself.
+      SERVICE_OPTS: >-
+        -Dfs.s3a.endpoint=http://seaweedfs:8333
+        -Dfs.s3a.path.style.access=true
+        -Dfs.s3a.access.key=sqlmcp-lake
+        -Dfs.s3a.secret.key=sqlmcp-lake-secret-test-only
+        -Dfs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
+        -Dmetastore.warehouse.dir=s3a://hive/warehouse
+    # hadoop-aws is in the image but off the classpath, and the AWS SDK v2 bundle is missing. Put both in
+    # /opt/hive/lib (on the classpath) before the metastore starts. Download the bundle with docker/hive-lib/... .
+    volumes: ["./hive-lib:/auxlib:ro"]
+    entrypoint: ["sh", "-c", "cp /opt/hadoop/share/hadoop/tools/lib/hadoop-aws-*.jar /auxlib/bundle-*.jar /opt/hive/lib/ && exec /entrypoint.sh"]
+    mem_limit: 2g
+
+# A network name without underscores: the Hive metastore's canonical hostname (<container>.<network>) must be a
+# legal URI host, or StarRocks' metastore client fails with "Illegal character in hostname".
+networks:
+  default:
+    name: sqlmcp
