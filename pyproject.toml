@@ -21,6 +21,7 @@ dev = ["ruff==0.17.3", "mypy==2.4.0", "types-PyMySQL==1.2.0.20260923"]
 
 [project.scripts]
 sql-mcp = "sql_mcp.server:main"
+sql-mcp-setup = "sql_mcp.setup:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sql_mcp"]
@@ -36,6 +37,7 @@ select = ["E", "F", "W", "B", "UP"]       # pycodestyle, pyflakes, bugbear, pyup
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["E501"]     # long SQL strings read better unwrapped
 "bench/**" = ["E501"]
+"src/sql_mcp/setup.py" = ["E501"]   # inline HTML/JS template; long lines are fine
 "tests/smoke_mysql.py" = ["E501", "B905"]   # the original v2 smoke test is kept byte-for-byte (its 56 checks are the contract)
 
 [tool.mypy]

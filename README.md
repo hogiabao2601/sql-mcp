@@ -49,6 +49,19 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -e .            # add '.[postgres]' for PostgreSQL profiles
 ```
 
+### The easy way: the setup wizard
+
+```bash
+.venv/bin/sql-mcp-setup        # opens a local browser UI (127.0.0.1 only, no extra dependencies)
+```
+
+Pick an engine, fill in the connection, click **Test connection** (it validates through the same loader and
+dialect the server uses), then **Save profile**. The wizard writes `connections.json` and prints the exact
+`claude mcp add` command (and an MCP config JSON for `--mcp-config` / Claude Desktop). The password you type is
+used only for the test — the file stores a `password_env` / `password_cmd` reference, never the secret.
+
+### Or by hand
+
 Create a least-privilege account in your database, for example MySQL:
 
 ```sql

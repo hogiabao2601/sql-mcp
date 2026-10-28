@@ -305,3 +305,7 @@ def main() -> None:
 __all__ = ["DEFAULT_ROWS", "HARD_MAX_ROWS", "MAX_CELL", "MAX_CHARS", "Profile", "TOOLS", "build_server", "cached",
            "cell", "check_ident", "check_read_only", "config", "dump", "engine_for", "get_profile", "log", "main",
            "rows_of", "run", "_pools", *(f.__name__ for f in TOOLS), "schema_overview"]
+
+
+if __name__ == "__main__":
+    main()
