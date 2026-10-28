@@ -26,3 +26,8 @@ docker/hive-lib/*.sha1
 ruvector.db
 agentdb.rvf
 agentdb.rvf.idmap.json
+
+# build artifacts
+dist/
+build/
+*.egg-info/
