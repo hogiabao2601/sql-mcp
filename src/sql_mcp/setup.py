@@ -249,8 +249,11 @@ Claude Code. The password you type is used only to test — it is never written 
 <script>
 const T = new URLSearchParams(location.search).get('t');
 const $ = id => document.getElementById(id);
+const PORTS = {mysql:3306, mariadb:3306, postgres:5432, starrocks:9030};
 function sync(){
   const e = $('engine').value, lit = e==='sqlite';
+  const pe = $('port');                       // show the engine's default port instead of a blank (empty = default silently)
+  if(!lit && (!pe.value || Object.values(PORTS).includes(+pe.value))) pe.value = PORTS[e];
   document.querySelectorAll('.net').forEach(x=>x.classList.toggle('hidden', lit));
   document.querySelector('.sqlite').classList.toggle('hidden', !lit);
   document.querySelector('.f_database').classList.toggle('hidden', false);
