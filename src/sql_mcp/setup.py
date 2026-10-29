@@ -97,6 +97,7 @@ def test_profile(name: str, form: dict) -> dict:
     """Validate + connect using the real loader/dialect. Returns {ok, databases?, tables?, error?}."""
     from . import server as srv
     from .config import config
+    from .executor import close_pools
     raw = build_raw(form, for_save=False)
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="sqlmcp-setup-")) / "c.json"
     tmp.write_text(json.dumps({"default": name, "profiles": {name: raw}}))
@@ -106,6 +107,7 @@ def test_profile(name: str, form: dict) -> dict:
     os.environ["SQL_MCP_CACHE_TTL"] = "0"
     try:
         config.cache_clear()
+        close_pools()          # drop any dialect/pool a previous test cached under this name
         dbs = json.loads(srv.list_databases(profile=name))
         result = {"ok": True, "databases": dbs[:50]}
         try:                                   # a default database is optional; show tables when there is one
@@ -122,6 +124,7 @@ def test_profile(name: str, form: dict) -> dict:
             else:
                 os.environ[k] = v
         config.cache_clear()
+        close_pools()
         try:
             tmp.unlink()
             tmp.parent.rmdir()
